@@ -11,7 +11,7 @@
 
 ## Live Demo
 
-- Capstone1: [EAC Developer summit]( https://ndikumanaisaie.github.io/Capstone-Project1/)
+- Awosome Books: [awosome books](https://ndikumanaisaie.github.io/awesome-books/)
 
 ## Authors
 
