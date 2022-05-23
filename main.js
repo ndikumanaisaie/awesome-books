@@ -1,4 +1,4 @@
-let bookData = [];
+const bookData = [];
 
 const newDiv = document.createElement('div');
 const myForm = document.getElementById('form');
@@ -9,13 +9,13 @@ bookList.appendChild(newDiv);
 const newBook = (title, author) => {
   const data = {
     bookTitle: title,
-    bookAuthor: author
+    bookAuthor: author,
   };
   bookData.push(data);
   localStorage.setItem('book', JSON.stringify(bookData));
   newDiv.innerHTML += `<div>
-          <p>${data.bookTitle}</p>
-          <p>${data.bookAuthor}</p>
+          <p><strong>${data.bookTitle}</strong></p>
+          <p><strong>${data.bookAuthor}</strong></p>
           <button class="remove">delete</button>
           <hr/>
           </div>`;
@@ -40,8 +40,8 @@ const getDataFromStore = () => {
       const books = JSON.parse(localStorage.getItem('book'));
       books.forEach((data) => {
         newDiv.innerHTML += `<div>
-              <p>${data.bookTitle}</p>
-              <p>${data.bookAuthor}</p>
+              <p><strong>${data.bookTitle}</strong></p>
+              <p><strong>${data.bookAuthor}</strong></p>
               <button class="remove">delete</button>
               <hr/>
               </div>`;
