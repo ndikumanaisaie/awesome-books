@@ -23,17 +23,14 @@ td {
   border: 1px solid rgb(221, 221, 221);
   text-align: left;
   padding: 12px;
-}
-
-.rmv {
-  border: 2px solid grey;
-  padding: 6px;
-  cursor: pointer;
-  width: 100%;
+  font-size: 16px;
 }
 
 .remove {
   text-align: center;
+  font-size: 16px;
+  padding: 6px;
+  cursor: pointer;
 }
 
 tr:nth-child(even) {
