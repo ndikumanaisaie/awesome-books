@@ -1,69 +1,77 @@
-const bookData = [];
+class Books {
+  constructor(title, author) {
+    // Initializing useful variables
+    this.title = title;
+    this.author = author;
 
-const newDiv = document.createElement('div');
-const myForm = document.getElementById('form');
-const bookList = document.getElementById('book-list');
-newDiv.classList.add('mylist');
-bookList.appendChild(newDiv);
+    this.newDiv = document.createElement('div');
+    this.myForm = document.getElementById('form');
+    this.bookList = document.getElementById('book-list');
+    this.newDiv.classList.add('mylist');
+    this.bookList.appendChild(this.newDiv);
+    this.addBtn = document.getElementById('btn');
 
-const newBook = (title, author) => {
-  const data = {
-    bookTitle: title,
-    bookAuthor: author,
-  };
-  bookData.push(data);
-  localStorage.setItem('book', JSON.stringify(bookData));
-  newDiv.innerHTML += `<div>
-          <p><strong>${data.bookTitle}</strong></p>
-          <p><strong>${data.bookAuthor}</strong></p>
-          <button class="remove">delete</button>
-          <hr/>
-          </div>`;
-  myForm.reset();
-};
+    this.bookData = [];
+  }
 
-const removeBook = () => {
-  newDiv.addEventListener('click', (e) => {
-    if (e.target.classList.contains('remove')) {
-      const list = e.target.parentElement;
-      const bookTitle = list.childNodes[6].value;
-      const remain = bookData.filter((book) => book.bookTitle !== bookTitle);
-      localStorage.setItem('book', JSON.stringify(remain));
-      newDiv.removeChild(list);
-    }
-  });
-};
+  newBook() {
+    this.addBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (this.title.value.trim() === '') return;
+      if (this.author.value.trim() === '') return;
 
-const getDataFromStore = () => {
-  window.addEventListener('load', () => {
-    if (localStorage.getItem('book')) {
-      const books = JSON.parse(localStorage.getItem('book'));
-      books.forEach((data) => {
-        newDiv.innerHTML += `<div>
+      const data = {
+        bookTitle: this.title.value,
+        bookAuthor: this.author.value,
+      };
+
+      this.bookData.push(data);
+      localStorage.setItem('book', JSON.stringify(this.bookData));
+      this.newDiv.innerHTML += `<div>
               <p><strong>${data.bookTitle}</strong></p>
               <p><strong>${data.bookAuthor}</strong></p>
               <button class="remove">delete</button>
               <hr/>
               </div>`;
-        bookData.push(books);
-      });
-    }
-  });
-};
+      this.myForm.reset();
+    });
+  }
 
-// Calling the newBook function
+  removeBook() {
+    this.newDiv.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove')) {
+        const list = e.target.parentElement;
+        const bookTitle = list.childNodes[4].value;
+        const remain = this.bookData.filter((book) => book.bookTitle !== bookTitle);
+        localStorage.setItem('book', JSON.stringify(remain));
+        this.newDiv.removeChild(list);
+      }
+    });
+  }
 
-const addBtn = document.getElementById('btn');
+  getDataFromStore() {
+    window.addEventListener('load', () => {
+      if (localStorage.getItem('book')) {
+        const books = JSON.parse(localStorage.getItem('book'));
+        books.forEach((data) => {
+          this.newDiv.innerHTML += `<div>
+                <p><strong>${data.bookTitle}</strong></p>
+                <p><strong>${data.bookAuthor}</strong></p>
+                <button class="remove">delete</button>
+                <hr/>
+                </div>`;
+          this.bookData.push(books);
+        });
+      }
+    });
+  }
+}
+
 const title = document.getElementById('book-title');
 const author = document.getElementById('author');
 
-addBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  if (title.value.trim() === '') return;
-  if (author.value.trim() === '') return;
-  newBook(title.value, author.value);
-});
+const book = new Books(title, author);
 
-removeBook();
-
-getDataFromStore();
+book.newBook();
+book.removeBook();
+book.getDataFromStore();
