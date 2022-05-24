@@ -3,3 +3,75 @@
   margin: 0;
   padding: 0;
 }
+
+.book-list {
+  text-align: center;
+}
+
+h1 {
+  margin: 24px auto;
+  text-align: center;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100vw;
+}
+
+td,
+th {
+  border: 1px solid rgb(221, 221, 221);
+  text-align: left;
+  padding: 8px;
+}
+
+/* .remove {
+  border: 2px solid grey;
+  padding: 6px;
+  cursor: pointer;
+} */
+
+tr:nth-child(even) {
+  background-color: rgb(221, 221, 221);
+}
+
+.grey-rule {
+  border-bottom: 2px solid grey;
+  width: 20%;
+  margin: 24px auto;
+}
+
+.new-book {
+  text-align: center;
+  margin: 24px auto;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#book-title,
+#author {
+  border: 2px solid grey;
+  padding: 8px;
+  border-radius: 4px;
+  width: 30%;
+  font-size: 18px;
+}
+
+.btn {
+  width: 10%;
+  padding: 8px;
+  border: 2px solid grey;
+  background-color: rgb(221, 221, 221);
+  font-size: 18px;
+  flex: auto;
+  border-radius: 4px;
+  margin-right: -20%;
+}

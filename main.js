@@ -4,14 +4,16 @@ class Books {
     this.title = title;
     this.author = author;
 
-    this.newDiv = document.createElement('div');
+    this.table = document.createElement('table');
+    this.tbody = document.createElement('tbody');
     this.myForm = document.getElementById('form');
     this.bookList = document.getElementById('book-list');
-    this.newDiv.classList.add('mylist');
-    this.bookList.appendChild(this.newDiv);
+    this.table.classList.add('mylist');
+    this.table.appendChild(this.tbody);
+    this.bookList.appendChild(this.table);
     this.addBtn = document.getElementById('btn');
 
-    this.bookData = (localStorage.getItem('book') !== null) ? JSON.parse(localStorage.getItem('book')) : [];
+    this.bookData = [];
   }
 
   newBook() {
@@ -27,24 +29,25 @@ class Books {
 
       this.bookData.push(data);
       localStorage.setItem('book', JSON.stringify(this.bookData));
-      this.newDiv.innerHTML += `<div>
-              <p><strong>${data.bookTitle}</strong></p>
-              <p><strong>${data.bookAuthor}</strong></p>
-              <button class="remove">delete</button>
-              <hr/>
-              </div>`;
+      this.tbody.innerHTML += `<tr>
+              <td>
+                <strong>"${data.bookTitle}"</strong>
+                <span><strong>by ${data.bookAuthor}</strong></span>
+              </td>
+              <td class="remove">Remove</td>
+              </tr>`;
       this.myForm.reset();
     });
   }
 
   removeBook() {
-    this.newDiv.addEventListener('click', (e) => {
+    this.tbody.addEventListener('click', (e) => {
       if (e.target.classList.contains('remove')) {
         const list = e.target.parentElement;
         const bookTitle = list.childNodes[4].value;
         const remain = this.bookData.filter((book) => book.bookTitle !== bookTitle);
         localStorage.setItem('book', JSON.stringify(remain));
-        this.newDiv.removeChild(list);
+        this.tbody.removeChild(list);
       }
     });
   }
@@ -54,12 +57,13 @@ class Books {
       if (localStorage.getItem('book')) {
         const books = JSON.parse(localStorage.getItem('book'));
         books.forEach((data) => {
-          this.newDiv.innerHTML += `<div>
-                <p><strong>${data.bookTitle}</strong></p>
-                <p><strong>${data.bookAuthor}</strong></p>
-                <button class="remove">delete</button>
-                <hr/>
-                </div>`;
+          this.tbody.innerHTML += `<tr>
+          <td>
+            <strong>"${data.bookTitle}"</strong>
+            <span><strong>by ${data.bookAuthor}</strong></span>
+          </td>
+          <td class="remove">Remove</td>
+          </tr>`;
           this.bookData.push(books);
         });
       }
