@@ -62,7 +62,7 @@ class Books {
             <strong>"${data.bookTitle}"</strong>
             <span><strong>by ${data.bookAuthor}</strong></span>
           </td>
-          <td class="remove">Remove</td>
+          <td class="remove">remove</td>
           </tr>`;
           this.bookData.push(books);
         });
