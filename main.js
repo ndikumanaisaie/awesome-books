@@ -11,7 +11,7 @@ class Books {
     this.bookList.appendChild(this.newDiv);
     this.addBtn = document.getElementById('btn');
 
-    this.bookData = [];
+    this.bookData = (localStorage.getItem('book') !== null) ? JSON.parse(localStorage.getItem('book')) : [];
   }
 
   newBook() {
