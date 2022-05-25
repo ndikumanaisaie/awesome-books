@@ -6,6 +6,8 @@
 
 .book-list {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
@@ -75,11 +77,6 @@ form {
   font-size: 18px;
   flex: auto;
   border-radius: 4px;
-}
-
-.book-list {
-  display: flex;
-  justify-content: center;
 }
 
 input[type=text] { 
