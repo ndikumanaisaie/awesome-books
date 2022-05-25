@@ -1,69 +1,65 @@
-const bookData = [];
+/* eslint-disable no-alert */
+class Books {
+  constructor(title, author) {
+    // Initializing useful variables
+    this.title = title;
+    this.author = author;
 
-const newDiv = document.createElement('div');
-const myForm = document.getElementById('form');
-const bookList = document.getElementById('book-list');
-newDiv.classList.add('mylist');
-bookList.appendChild(newDiv);
+    this.table = document.createElement('table');
+    this.tbody = document.createElement('tbody');
+    this.myForm = document.getElementById('form');
+    this.bookList = document.getElementById('book-list');
+    this.table.appendChild(this.tbody);
+    this.bookList.appendChild(this.table);
+    this.listTitle = document.querySelector('.list-title');
 
-const newBook = (title, author) => {
-  const data = {
-    bookTitle: title,
-    bookAuthor: author,
-  };
-  bookData.push(data);
-  localStorage.setItem('book', JSON.stringify(bookData));
-  newDiv.innerHTML += `<div>
-          <p><strong>${data.bookTitle}</strong></p>
-          <p><strong>${data.bookAuthor}</strong></p>
-          <button class="remove">delete</button>
-          <hr/>
-          </div>`;
-  myForm.reset();
-};
+    this.bookData = (localStorage.book != null) ? JSON.parse(localStorage.book) : [];
+  }
 
-const removeBook = () => {
-  newDiv.addEventListener('click', (e) => {
-    if (e.target.classList.contains('remove')) {
-      const list = e.target.parentElement;
-      const bookTitle = list.childNodes[6].value;
-      const remain = bookData.filter((book) => book.bookTitle !== bookTitle);
-      localStorage.setItem('book', JSON.stringify(remain));
-      newDiv.removeChild(list);
+  addBook() {
+    if (this.title.value === '' || this.author.value === '') {
+      this.listTitle.innerHTML = 'Please fill the field below';
+    } else {
+      this.bookData.push({ bookTitle: this.title.value, bookAuthor: this.author.value });
+      this.updateStore();
     }
-  });
-};
+  }
 
-const getDataFromStore = () => {
-  window.addEventListener('load', () => {
-    if (localStorage.getItem('book')) {
-      const books = JSON.parse(localStorage.getItem('book'));
-      books.forEach((data) => {
-        newDiv.innerHTML += `<div>
-              <p><strong>${data.bookTitle}</strong></p>
-              <p><strong>${data.bookAuthor}</strong></p>
-              <button class="remove">delete</button>
-              <hr/>
-              </div>`;
-        bookData.push(books);
-      });
+  removeBook(id) {
+    this.bookData.splice(id, 1);
+    this.updateStore();
+    if (this.bookData.length === 0) {
+      this.listTitle.innerHTML = 'Books List is empty';
+    } else {
+      this.listTitle.innerHTML = '';
     }
-  });
-};
+  }
 
-// Calling the newBook function
+  displayBooks() {
+    this.tbody.innerHTML = '';
+    let id = 0;
 
-const addBtn = document.getElementById('btn');
+    this.bookData.forEach((book) => {
+      this.tbody.innerHTML
+      += `<tr>
+          <td>
+            <strong>"${book.bookTitle}"</strong>
+            <span><strong>by ${book.bookAuthor}</strong></span>
+          </td>
+          <td class="remove" onClick="book.removeBook(${id})">Remove</td>
+          </tr>`;
+      id += 1;
+    });
+  }
+
+  updateStore() {
+    localStorage.book = JSON.stringify(this.bookData);
+    this.displayBooks();
+  }
+}
+
 const title = document.getElementById('book-title');
 const author = document.getElementById('author');
 
-addBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  if (title.value.trim() === '') return;
-  if (author.value.trim() === '') return;
-  newBook(title.value, author.value);
-});
-
-removeBook();
-
-getDataFromStore();
+const book = new Books(title, author);
+book.displayBooks();

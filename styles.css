@@ -3,3 +3,97 @@
   margin: 0;
   padding: 0;
 }
+
+.list-title {
+  text-align: center;
+  color: red;
+}
+
+.book-list {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  margin: 24px auto;
+  text-align: center;
+}
+
+table {
+  font-family: arial, sans-serif;
+  width: 80vw;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+td {
+  border: 1px solid rgb(221, 221, 221);
+  text-align: left;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.remove {
+  text-align: center;
+  font-size: 16px;
+  padding: 6px;
+  cursor: pointer;
+  border: 1px solid grey;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(221, 221, 221);
+}
+
+.grey-rule {
+  border-bottom: 2px solid grey;
+  width: 20%;
+  margin: 24px auto;
+}
+
+.new-book {
+  text-align: center;
+  margin: 24px auto;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#book-title,
+#author {
+  border: 2px solid grey;
+  padding: 8px;
+  border-radius: 4px;
+  width: 30%;
+  font-size: 18px;
+}
+
+.btn {
+  width: 64px;
+  padding: 8px;
+  border: 2px solid grey;
+  background-color: rgb(221, 221, 221);
+  font-size: 18px;
+  flex: auto;
+  border-radius: 4px;
+}
+
+input [type=text] {
+  border: 2px solid rgb(221, 221, 221);
+  color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  .btn {
+    background-color: lightblue;
+    margin-right: -25vw;
+  }
+}

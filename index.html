@@ -13,16 +13,21 @@
     <title>Awesome Books</title>
   </head>
   <body>
-    <h1>Awesome Books</h1>
+    <h1>All Awesome Books</h1>
+    <h2 id="list-title" class="list-title"></h2>
     <div class="book-list" id="book-list">
       
     </div>
+    <div class="grey-rule">
+    </div>
+
+    <p class="new-book">Add a new book</p>
     <form action="#" id="form">
       <label for="book-title"></label>
       <input type="text" id="book-title" placeholder="Title" /> <br><br>
       <label for="author"></label>
       <input type="text" id="author" placeholder="Author" /><br><br>
-      <button type="submit" class="btn" id="btn">Add</button>
+      <button type="submit" class="btn" onclick="book.addBook()" id="btn">Add</button>
     </form>
     <script src="main.js"></script>
   </body>
