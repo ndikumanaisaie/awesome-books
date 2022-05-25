@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+.list-title {
+  text-align: center;
+  color: red;
+}
+
 .book-list {
   text-align: center;
   display: flex;
@@ -17,9 +22,10 @@ h1 {
 
 table {
   font-family: arial, sans-serif;
-  border-collapse: collapse;
   width: 80vw;
   text-align: center;
+  border-collapse: separate;
+  border-spacing: 0 8px;
 }
 
 td {
@@ -34,6 +40,7 @@ td {
   font-size: 16px;
   padding: 6px;
   cursor: pointer;
+  border: 1px solid grey;
 }
 
 tr:nth-child(even) {

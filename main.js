@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 class Books {
   constructor(title, author) {
     // Initializing useful variables
@@ -8,66 +9,52 @@ class Books {
     this.tbody = document.createElement('tbody');
     this.myForm = document.getElementById('form');
     this.bookList = document.getElementById('book-list');
-    this.table.classList.add('mylist');
     this.table.appendChild(this.tbody);
     this.bookList.appendChild(this.table);
-    this.addBtn = document.getElementById('btn');
+    this.listTitle = document.querySelector('.list-title');
 
-    this.bookData = [];
+    this.bookData = (localStorage.book != null) ? JSON.parse(localStorage.book) : [];
   }
 
-  newBook() {
-    this.addBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (this.title.value.trim() === '') return;
-      if (this.author.value.trim() === '') return;
-
-      const data = {
-        bookTitle: this.title.value,
-        bookAuthor: this.author.value,
-      };
-
-      this.bookData.push(data);
-      localStorage.setItem('book', JSON.stringify(this.bookData));
-      this.tbody.innerHTML += `<tr>
-              <td>
-                <strong>"${data.bookTitle}"</strong>
-                <span><strong>by ${data.bookAuthor}</strong></span>
-              </td>
-              <td class="remove">Remove</td>
-              </tr>`;
-      this.myForm.reset();
-    });
+  addBook() {
+    if (this.title.value === '' || this.author.value === '') {
+      this.listTitle.innerHTML = 'Please fill the field below';
+    } else {
+      this.bookData.push({ bookTitle: this.title.value, bookAuthor: this.author.value });
+      this.updateStore();
+    }
   }
 
-  removeBook() {
-    this.tbody.addEventListener('click', (e) => {
-      if (e.target.classList.contains('remove')) {
-        const list = e.target.parentElement;
-        const bookTitle = list.childNodes[4].value;
-        const remain = this.bookData.filter((book) => book.bookTitle !== bookTitle);
-        localStorage.setItem('book', JSON.stringify(remain));
-        this.tbody.removeChild(list);
-      }
-    });
+  removeBook(id) {
+    this.bookData.splice(id, 1);
+    this.updateStore();
+    if (this.bookData.length === 0) {
+      this.listTitle.innerHTML = 'Books List is empty';
+    } else {
+      this.listTitle.innerHTML = '';
+    }
   }
 
-  getDataFromStore() {
-    window.addEventListener('load', () => {
-      if (localStorage.getItem('book')) {
-        const books = JSON.parse(localStorage.getItem('book'));
-        books.forEach((data) => {
-          this.tbody.innerHTML += `<tr>
+  displayBooks() {
+    this.tbody.innerHTML = '';
+    let id = 0;
+
+    this.bookData.forEach((book) => {
+      this.tbody.innerHTML
+      += `<tr>
           <td>
-            <strong>"${data.bookTitle}"</strong>
-            <span><strong>by ${data.bookAuthor}</strong></span>
+            <strong>"${book.bookTitle}"</strong>
+            <span><strong>by ${book.bookAuthor}</strong></span>
           </td>
-          <td class="remove">Remove</td>
+          <td class="remove" onClick="book.removeBook(${id})">Remove</td>
           </tr>`;
-          this.bookData.push(books);
-        });
-      }
+      id += 1;
     });
+  }
+
+  updateStore() {
+    localStorage.book = JSON.stringify(this.bookData);
+    this.displayBooks();
   }
 }
 
@@ -75,7 +62,4 @@ const title = document.getElementById('book-title');
 const author = document.getElementById('author');
 
 const book = new Books(title, author);
-
-book.newBook();
-book.removeBook();
-book.getDataFromStore();
+book.displayBooks();
