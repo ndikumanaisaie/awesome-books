@@ -82,6 +82,11 @@ form {
   justify-content: center;
 }
 
+input[type=text] { 
+  border: 2px solid rgb(221, 221, 221); ;
+  color: white; 
+} 
+
 @media only screen and (min-width: 768px) {
   .btn {
     background-color: lightblue;
