@@ -16,7 +16,8 @@ h1 {
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100vw;
+  width: 80vw;
+  text-align: center;
 }
 
 td {
@@ -74,6 +75,11 @@ form {
   font-size: 18px;
   flex: auto;
   border-radius: 4px;
+}
+
+.book-list {
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (min-width: 768px) {
