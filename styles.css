@@ -79,7 +79,7 @@ form {
   border-radius: 4px;
 }
 
-input[type=text] {
+input {
   border: 2px solid rgb(221, 221, 221); 
   color: #fff; 
 } 
