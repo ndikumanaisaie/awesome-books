@@ -79,8 +79,8 @@ form {
   border-radius: 4px;
 }
 
-input {
-  border: 2px solid rgb(221, 221, 221); 
+input[type=text] {
+  border: 2px solid #fff; 
   color: #fff; 
 } 
 
