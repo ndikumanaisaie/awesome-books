@@ -1,21 +1,139 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --white: #f9f9f9;
+  --black: rgb(54, 56, 63);
+  --gray: rgb(133, 136, 140);
 }
 
-.nav {
-  display: flex;
-  border: 2px solid green;
-  justify-content: space-between;
-  padding: 8px 20px;
+/* variables */
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--white);
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Header */
+.header {
+  background-color: var(--black);
+  box-shadow: 1px 1px 5px 0 var(--gray);
+  position: sticky;
+  top: 0;
+  width: 98%;
   margin: 12px;
 }
 
-.nav-links {
-  display: flex;
-  gap: 48px;
-  justify-content: space-between;
+/* Logo */
+.logo {
+  display: inline-block;
+  color: var(--white);
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+/* Nav menu */
+.nav {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: var(--black);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+  display: block;
+}
+
+.menu a {
+  display: block;
+  padding: 8px;
+  color: var(--white);
+}
+
+.menu .list {
+  border-right: 2px solid white;
+}
+
+.menu .add-new {
+  border-right: 2px solid white;
+}
+
+.menu a:hover {
+  background-color: var(--gray);
+}
+
+/* Menu Icon */
+.hamb {
+  cursor: pointer;
+  float: right;
+  padding: 40px 20px;
+}/* Style label tag */
+
+.hamb-line {
+  background: var(--white);
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 24px;
+  z-index: 1;
+  top: -24px;
+}
+
+/* Style span tag */
+.hamb-line::before,
+.hamb-line::after {
+  background: var(--white);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.hamb-line::before {
+  top: 5px;
+}
+
+.hamb-line::after {
+  top: -5px;
+}
+
+.side-menu {
+  display: none;
+  border: 2px solid red;
+}
+
+/* Toggle menu icon */
+.side-menu:checked ~ nav {
+  max-height: 100%;
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+  background: transparent;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after {
+  transform: rotate(45deg);
+  top: 0;
 }
 
 .nav-rule {
@@ -40,13 +158,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 12px;
+  gap: 40px;
+  margin: 40px 12px;
 }
-
-/* h2 {
-  margin: 24px auto;
-  text-align: center;
-} */
 
 table {
   font-family: arial, sans-serif;
@@ -102,12 +216,12 @@ form {
   border: 2px solid grey;
   padding: 8px;
   border-radius: 4px;
-  width: 30%;
+  width: 90%;
   font-size: 18px;
 }
 
 .btn {
-  width: 64px;
+  width: 164px;
   padding: 8px;
   border: 2px solid grey;
   background-color: rgb(221, 221, 221);
@@ -124,22 +238,87 @@ input [type=text] {
 .contact-section {
   flex-direction: column;
   align-items: center;
+  margin: 40px 12px;
 }
 
 footer {
-  text-align: center;
+  text-align: left;
+  margin-right: 12px;
+  margin-left: 12px;
+  margin-top: 100%;
+  padding: 16px;
+  border: 2px solid grey;
 }
 
 .active {
-  background-color: blue;
+  background-color: rgb(136, 136, 165);
   color: white;
   padding: 8px;
   border-radius: 8px;
 }
 
+.contact-section h2 {
+  margin-bottom: 24px;
+}
+
+.contact-section ul {
+  list-style-type: circle;
+  margin-top: 24px;
+}
+
+#time {
+  font-size: 16px;
+  color: black;
+  margin: 12px;
+  text-align: center;
+}
+
 @media only screen and (min-width: 768px) {
+  .logo {
+    font-size: 30px;
+  }
+
   .btn {
     background-color: rgb(221, 221, 221);
-    margin-right: -25vw;
+    margin-right: -15vw;
+    width: 64px;
+  }
+
+  .nav {
+    max-height: 34px;
+    top: 0;
+    position: relative;
+    float: right;
+    width: fit-content;
+  }
+
+  .menu li {
+    float: left;
+  }
+
+  .menu a:hover {
+    background-color: transparent;
+    color: var(--gray);
+  }
+
+  .hamb {
+    display: none;
+  }
+
+  #book-title,
+  #author {
+    border: 2px solid grey;
+    padding: 8px;
+    border-radius: 4px;
+    width: 20%;
+    font-size: 18px;
+  }
+
+  #time {
+    text-align: right;
+  }
+
+  footer {
+    margin-top: 300px;
   }
 }

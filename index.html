@@ -1,41 +1,41 @@
-<!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- App title -->
+    <title>Awosome Book with navigation</title>
+    <!-- Link CSS file -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-    <title>Awesome Books</title>
-  </head>
-  <body>
-    <header>
-      <nav class="nav">
-        <h1 class="h1">Awosome Books</h1>
-        <div class="nav-links" id="nav-links">
-          <a href="#book-list" class="nav-item list">List</a>
-          <div class="nav-rule"></div>
-          <a href="#form-section" class="nav-item add-new">Add New</a>
-          <div class="nav-rule"></div>
-          <a href="#contact-section" class="nav-item contact">Contact us</a>
-        </div>
-      </nav>
-      <div class="time" id="time"></div>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header class="header">
+        <!-- Logo -->
+        <a href="#" class="logo">Awoseme Books</a>
+        <!-- Hamburger icon -->
+        <input class="side-menu" type="checkbox" id="side-menu"/>
+        <label class="hamb" id="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        <!-- Menu -->
+        <nav class="nav" id="nav">
+            <ul class="menu" id="menu">
+                <li><a href="#" class="nav-item list" id="list">List</a></li>
+                <li class="nav-rule"></li>
+                <li><a href="#" class="nav-item add-new">Add New</a> </li>
+                <li class="nav-rule"></li>
+                <li><a href="#" class="nav-item contact">Contact</a></li>
+            </ul>
+        </nav>
+        
     </header>
-    
+    <div class="time" id="time"></div>
+    <!-- Main content -->
     <section class="book-list" id="book-list">
       <h2>All Awesome Books</h2>
-      <h2 id="list-title" class="list-title"></h2>
     </section>
 
-    <!-- <div class="grey-rule">
-    </div>
-     -->
     <section class="form-section" id="form-section">
+      <h2 id="list-title" class="list-title"></h2>
       <p class="new-book">Add a new book</p>
       <form action="#" id="form">
         <label for="book-title"></label>
@@ -47,7 +47,13 @@
     </section>
 
     <section class="contact-section"  id="contact-section">
-      <p>In contact section</p>
+      <h2>Contact Information</h2>
+      <p>Do you have any question or you just want to say hallo?</p>
+      <p>You can reach out to us!</p>
+      <ul>
+        <li><a href="#"></a>ndikumanaisaie@gmail.com</li>
+        <li><a href="#"></a>ndikumanaisaie@gmail.com</li>
+      </ul>
     </section>
 
     <footer>
@@ -55,5 +61,5 @@
     </footer>
     
     <script src="main.js"></script>
-  </body>
+</body>
 </html>

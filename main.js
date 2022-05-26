@@ -65,10 +65,11 @@ book.displayBooks();
 
 // Add navigation to the Awesome Book project
 
-const navLinks = document.getElementById('nav-links');
+const menu = document.getElementById('menu');
 const listSection = document.getElementById('book-list');
 const formSection = document.getElementById('form-section');
 const contactSection = document.getElementById('contact-section');
+const time = document.getElementById('time');
 
 const menuList = document.querySelectorAll('.nav-item');
 
@@ -80,12 +81,11 @@ window.addEventListener('load', () => {
   contactSection.style.display = 'none';
 });
 
-navLinks.addEventListener('click', (e) => {
+menu.addEventListener('click', (e) => {
   if (e.target.classList.contains('list')) {
     formSection.style.display = 'none';
     contactSection.style.display = 'none';
     listSection.style.display = 'flex';
-
     for (let i = 0; i < menuList.length; i += 1) {
       menuList[i].classList.remove('active');
     }
@@ -111,3 +111,10 @@ navLinks.addEventListener('click', (e) => {
     e.target.classList.add('active');
   }
 });
+
+const today = new Date();
+const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+const mytime = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+const dateTime = `${date} ${mytime}`;
+
+time.innerHTML = dateTime;
