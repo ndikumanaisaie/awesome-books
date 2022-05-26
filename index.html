@@ -14,20 +14,32 @@
     <header class="header">
         <!-- Logo -->
         <a href="#" class="logo">Awoseme Books</a>
+        <nav class="desk-nav" id="desk-nav">
+          <ul class="menu" id="menu">
+              <li><a href="#book-list" class="nav-item list" id="list">List</a></li>
+              <li class="nav-rule"></li>
+              <li><a href="#form-section" class="nav-item add-new">Add New</a> </li>
+              <li class="nav-rule"></li>
+              <li><a href="#contact-section" class="nav-item contact">Contact</a></li>
+          </ul>
+        </nav>
         <!-- Hamburger icon -->
-        <input class="side-menu" type="checkbox" id="side-menu"/>
-        <label class="hamb" id="hamb" for="side-menu"><span class="hamb-line"></span></label>
-        <!-- Menu -->
+
+        <button id="close-modal" type="button" class="close-modal x">
+          <span>&times;</span>
+        </button>
+        <div class="hamburger" id="hamburger">
+          <span class="line"></span><span class="line"></span><span class="line"></span>
+        </div>
         <nav class="nav" id="nav">
-            <ul class="menu" id="menu">
-                <li><a href="#" class="nav-item list" id="list">List</a></li>
+            <ul class="menu" id="mobile-menu">
+                <li><a href="#book-list" class="nav-item list" id="list">List</a></li>
                 <li class="nav-rule"></li>
-                <li><a href="#" class="nav-item add-new">Add New</a> </li>
+                <li><a href="#form-section" class="nav-item add-new">Add New</a> </li>
                 <li class="nav-rule"></li>
-                <li><a href="#" class="nav-item contact">Contact</a></li>
+                <li><a href="#contact-section" class="nav-item contact">Contact</a></li>
             </ul>
         </nav>
-        
     </header>
     <div class="time" id="time"></div>
     <!-- Main content -->
