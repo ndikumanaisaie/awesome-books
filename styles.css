@@ -4,6 +4,32 @@
   padding: 0;
 }
 
+.nav {
+  display: flex;
+  border: 2px solid green;
+  justify-content: space-between;
+  padding: 8px 20px;
+  margin: 12px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 48px;
+  justify-content: space-between;
+}
+
+.nav-rule {
+  border-right: 1px solid grey;
+}
+
+.nav-item {
+  /* border-right: 2px solid grey; */
+  text-decoration: none;
+  color: black;
+  padding-right: 20px;
+  font-size: 16px;
+}
+
 .list-title {
   text-align: center;
   color: red;
@@ -12,20 +38,23 @@
 .book-list {
   text-align: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 12px;
 }
 
-h1 {
+/* h2 {
   margin: 24px auto;
   text-align: center;
-}
+} */
 
 table {
   font-family: arial, sans-serif;
-  width: 80vw;
+  width: 100%;
   text-align: center;
   border-collapse: separate;
   border-spacing: 0 8px;
+  border: 2px solid grey;
 }
 
 td {
@@ -64,6 +93,7 @@ tr:nth-child(even) {
 form {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   align-items: center;
 }
 
@@ -91,9 +121,25 @@ input [type=text] {
   color: #fff;
 }
 
+.contact-section {
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  text-align: center;
+}
+
+.active {
+  background-color: blue;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+}
+
 @media only screen and (min-width: 768px) {
   .btn {
-    background-color: lightblue;
+    background-color: rgb(221, 221, 221);
     margin-right: -25vw;
   }
 }

@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 class Books {
   constructor(title, author) {
     // Initializing useful variables
@@ -63,3 +62,52 @@ const author = document.getElementById('author');
 
 const book = new Books(title, author);
 book.displayBooks();
+
+// Add navigation to the Awesome Book project
+
+const navLinks = document.getElementById('nav-links');
+const listSection = document.getElementById('book-list');
+const formSection = document.getElementById('form-section');
+const contactSection = document.getElementById('contact-section');
+
+const menuList = document.querySelectorAll('.nav-item');
+
+// Add event listener to top menu
+
+window.addEventListener('load', () => {
+  menuList[0].classList.add('active');
+  formSection.style.display = 'none';
+  contactSection.style.display = 'none';
+});
+
+navLinks.addEventListener('click', (e) => {
+  if (e.target.classList.contains('list')) {
+    formSection.style.display = 'none';
+    contactSection.style.display = 'none';
+    listSection.style.display = 'flex';
+
+    for (let i = 0; i < menuList.length; i += 1) {
+      menuList[i].classList.remove('active');
+    }
+    e.target.classList.add('active');
+  } else if (e.target.classList.contains('add-new')) {
+    formSection.style.display = 'flex';
+    formSection.style.flexDirection = 'column';
+    contactSection.style.display = 'none';
+    listSection.style.display = 'none';
+
+    for (let i = 0; i < menuList.length; i += 1) {
+      menuList[i].classList.remove('active');
+    }
+    e.target.classList.add('active');
+  } else if (e.target.classList.contains('contact')) {
+    formSection.style.display = 'none';
+    contactSection.style.display = 'flex';
+    listSection.style.display = 'none';
+
+    for (let i = 0; i < menuList.length; i += 1) {
+      menuList[i].classList.remove('active');
+    }
+    e.target.classList.add('active');
+  }
+});
