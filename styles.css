@@ -1,7 +1,106 @@
+:root {
+  --white: #f9f9f9;
+  --black: rgb(54, 56, 63);
+  --gray: rgb(133, 136, 140);
+}
+
+/* variables */
+
+/* Reset */
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--white);
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.logo {
+  display: none;
+}
+
+/* Header */
+.header {
+  background-color: var(--black);
+  box-shadow: 1px 1px 5px 0 var(--gray);
+  position: sticky;
+  top: 0;
+  width: 98%;
+  margin: 12px;
+}
+
+/* Nav menu */
+.nav {
+  display: block;
+  height: 100vh;
+}
+
+.menu a {
+  display: block;
+  padding: 8px;
+  color: var(--white);
+}
+
+.menu .list {
+  border-right: 2px solid white;
+}
+
+.menu .add-new {
+  border-right: 2px solid white;
+}
+
+.menu a:hover {
+  background-color: var(--gray);
+}
+
+@media only screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .line {
+    display: block;
+    width: 40px;
+    height: 6px;
+    margin: 8px 10px;
+    background-color: #ececec;
+  }
+}
+
+.close-modal {
+  background: transparent;
+  border: none;
+  color: white;
+  position: absolute;
+  right: 25px;
+  top: 18px;
+  font-size: 40px;
+  display: none;
+}
+
+.nav-rule {
+  border-right: 1px solid grey;
+}
+
+.nav-item {
+  /* border-right: 2px solid grey; */
+  text-decoration: none;
+  color: black;
+  padding-right: 20px;
+  font-size: 16px;
 }
 
 .list-title {
@@ -12,20 +111,19 @@
 .book-list {
   text-align: center;
   display: flex;
-  justify-content: center;
-}
-
-h1 {
-  margin: 24px auto;
-  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin: 40px 12px;
 }
 
 table {
   font-family: arial, sans-serif;
-  width: 80vw;
+  width: 100%;
   text-align: center;
   border-collapse: separate;
   border-spacing: 0 8px;
+  border: 2px solid grey;
 }
 
 td {
@@ -64,6 +162,7 @@ tr:nth-child(even) {
 form {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   align-items: center;
 }
 
@@ -72,12 +171,12 @@ form {
   border: 2px solid grey;
   padding: 8px;
   border-radius: 4px;
-  width: 30%;
+  width: 90%;
   font-size: 18px;
 }
 
 .btn {
-  width: 64px;
+  width: 164px;
   padding: 8px;
   border: 2px solid grey;
   background-color: rgb(221, 221, 221);
@@ -91,9 +190,112 @@ input [type=text] {
   color: #fff;
 }
 
+.contact-section {
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 12px;
+}
+
+footer {
+  text-align: left;
+  margin-right: 12px;
+  margin-left: 12px;
+  margin-top: 90%;
+  padding: 16px;
+  border: 2px solid grey;
+}
+
+.active {
+  background-color: rgb(136, 136, 165);
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.contact-section h2 {
+  margin-bottom: 24px;
+}
+
+.contact-section ul {
+  list-style-type: circle;
+  margin-top: 24px;
+}
+
+#time {
+  font-size: 16px;
+  color: black;
+  margin: 12px;
+  text-align: center;
+}
+
+.desk-nav {
+  display: none;
+}
+
+/* Desktop version */
+
 @media only screen and (min-width: 768px) {
+  .logo {
+    font-size: 30px;
+    display: inline-block;
+    color: var(--white);
+    margin-left: 10px;
+  }
+
+  .nav {
+    display: none;
+  }
+
   .btn {
-    background-color: lightblue;
-    margin-right: -25vw;
+    background-color: rgb(221, 221, 221);
+    margin-right: -15vw;
+    width: 64px;
+  }
+
+  .desk-nav {
+    display: block;
+    max-height: 34px;
+    top: 0;
+    position: relative;
+    float: right;
+    width: fit-content;
+  }
+
+  .menu li {
+    float: left;
+  }
+
+  .menu a:hover {
+    background-color: transparent;
+    color: var(--gray);
+  }
+
+  .hamb {
+    display: none;
+  }
+
+  #book-title,
+  #author {
+    border: 2px solid grey;
+    padding: 8px;
+    border-radius: 4px;
+    width: 20%;
+    font-size: 18px;
+  }
+
+  #time {
+    text-align: right;
+  }
+
+  footer {
+    margin-top: 200px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .close-modal {
+    display: none;
   }
 }
