@@ -41,3 +41,5 @@ This project is [MIT](./MIT.md) licensed.
 
 ## Link to URL on browser
 - Awesome Books: [Awesome Books](https://ndikumanaisaie.github.io/awesome-books/)
+## Link to URL on github
+- [Awesome Books](https://github.com/ndikumanaisaie/awesome-books)
