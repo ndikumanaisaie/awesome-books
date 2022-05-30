@@ -18,12 +18,6 @@
 - Twitter: [Ndikuma38670724](https://twitter.com/Ndikuma38670724)
 - LinkedIn: [ndikumana-isaie-21166273](https://www.linkedin.com/in/ndikumana-isaie-21166273/)
 
-👤 **Kinyera Amos**
-
-- GitHub: [@bigmosi](https://github.com/bigmosi/)
-- Twitter: [@kinyera_amos](https://twitter.com/kinyera_amos)
-- LinkedIn: [kinyera-amos-026062218](https://linkedin.com/in/kinyera-amos-026062218)
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
