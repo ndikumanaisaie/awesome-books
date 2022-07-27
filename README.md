@@ -3,7 +3,6 @@
 # Awesome Books
 
 > This project is a book collection basic website that allows users to add/remove books from a list
-
 ## Built With
 
 - CSS
