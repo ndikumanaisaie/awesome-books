@@ -2,9 +2,12 @@
 
 # Awesome Books
 
-> This project is a book collection basic website that allows users to add/remove books from a list
-## Built With
+> This project is a book collection basic website that allows users to add/remove books from a list.
 
+## Screen shot of the book page
+
+![awosome books](https://github.com/ndikumanaisaie/awesome-books/blob/main/images/shot.png)
+## Built With
 - CSS
 - HTML
 - Javascript
