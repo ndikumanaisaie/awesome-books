@@ -46,7 +46,7 @@ export default class {
             <strong>"${book.bookTitle}"</strong>
             <span><strong>by ${book.bookAuthor}</strong></span>
           </td>
-          <td class="remove" onClick="book.removeBook(${id})">Remove</td>
+          <td class="remove" data-id="${id}" onClick="book.removeBook(${id})">Remove</td>
           </tr>`;
       id += 1;
     });
