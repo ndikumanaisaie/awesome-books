@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import Books from './utilityClass.js';
 import navigation from './navMenu.js';
 import luxon from './time.js';

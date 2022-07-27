@@ -191,9 +191,11 @@ input [type=text] {
 }
 
 .contact-section {
+  display: flex;
   flex-direction: column;
   align-items: center;
   margin: 40px 12px;
+  justify-content: center;
 }
 
 footer {
